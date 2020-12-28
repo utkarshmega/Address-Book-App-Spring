@@ -1,25 +1,32 @@
 package com.cagemini.addressbookappspring.dto;
 
-public class AddressBookDTO {
-	
-	public String firstName;
-	public String lastName;
-	public String address;
-	
-	
-	public AddressBookDTO() {
-		
-	}
-	
-	public AddressBookDTO(String firstName, String lastName, String address) {
-		this.firstName = firstName;
-		this.lastName = lastName;
+import lombok.Data;
+
+public @Data class AddressBookDTO {
+
+	private String fullName;
+
+	private String address;
+
+	private String city;
+
+	private String state;
+
+	private String zip;
+
+	private String phoneNumber;
+
+	public AddressBookDTO(String fullName, String address, String city, String state, String zip, String phoneNumber) {
+		this.fullName = fullName;
 		this.address = address;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.phoneNumber = phoneNumber;
 	}
-	
-	@Override
-	public String toString() {
-		return "AddressBookDTO [First Name: "+firstName +" Last Name: " + lastName + "Address: " + address + "]";
+
+	public AddressBookDTO() {
+
 	}
 
 }
