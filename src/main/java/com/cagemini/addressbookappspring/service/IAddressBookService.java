@@ -6,15 +6,14 @@ import com.cagemini.addressbookappspring.dto.AddressBookDTO;
 import com.cagemini.addressbookappspring.model.AddressBookData;
 
 public interface IAddressBookService {
-	
-	List<AddressBookData> getAddressBookData();
-	
-	AddressBookData getAddressBookDataById(int id);
-	
-	AddressBookData updateAddressBookData(AddressBookDTO addressBookDto);
-	
-	AddressBookData createAddressBookData(AddressBookDTO addressBookDto);
-	
-	void deleteAddressBookData(int id);
 
+	List<AddressBookData> getAddressBookContactData();
+
+	AddressBookData getAddressBookContactDataById(int id);
+
+	AddressBookData createAddressBookContactData(AddressBookDTO addressBookDTO);
+
+	AddressBookData updateAddressBookContactData(int id, AddressBookDTO addressBookDTO);
+
+	void deleteAddressBookContactData(int id);
 }

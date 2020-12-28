@@ -1,51 +1,59 @@
 package com.cagemini.addressbookappspring.model;
 
 import com.cagemini.addressbookappspring.dto.AddressBookDTO;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "addressbook")
 public class AddressBookData {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
 	
-	int id;
-	String firstName;
-	String lastName;
-	String address;
-	
-	public AddressBookData(int id, AddressBookDTO addressBookDTO) {
-		this.id = id;
-		this.firstName = addressBookDTO.firstName;
-		this.lastName = addressBookDTO.lastName;
-		this.address = addressBookDTO.address;
-	}
+	@Column(name="full_name")
+	private String fullName;
 
-	public int getId() {
-		return id;
-	}
+	@Column(name="address")
+	private String address;
 
-	public void setId(int id) {
-		this.id = id;
-	}
+	@Column(name="city")
+	private String city;
 
-	public String getFirstName() {
-		return firstName;
-	}
+	@Column(name="state")
+	private String state;
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+	@Column(name="zip")
+	private String zip;
 
-	public String getLastName() {
-		return lastName;
-	}
+	@Column(name="phone")
+	private String phoneNumber;
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
+	public AddressBookData(String fullName,String address,String city,String state,String zip,String phoneNumber) {
+		this.fullName =fullName;
 		this.address = address;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.phoneNumber = phoneNumber;
+	}
+	public AddressBookData() {
+
 	}
 	
+	public AddressBookData(AddressBookDTO addressBookDTO) {
+		this.fullName = addressBookDTO.getFullName();
+		this.address = addressBookDTO.getAddress();
+		this.city = addressBookDTO.getCity();
+		this.state = addressBookDTO.getState();
+		this.zip = addressBookDTO.getZip();
+		this.phoneNumber = addressBookDTO.getPhoneNumber();
+	}	
 }
